@@ -6,28 +6,24 @@
 
 {% block content %}
 
-<div class = "login">
+<div class="container" style="width:320px; padding-top:50px">
 
-    <h1>Login</h1>
-
+    <h1 style="text-align:center";"background-color:grey;";"font-family:sans-serif">LOGIN</h1>
     <form method="POST" action="">
         {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+        <div class="form-group">
+            <label style="padding-top: 10px">Username</label>
+            <input type="text" name="username" placeholder="Username" class="form-control">
+        </div>
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <label style="padding-top: 10px">Password</label>
+            <input type="password" name="password" placeholder="Password" class="form-control">
+        </div>
+
+        <div style="text-align:center">
+            <button type="button" class="btn btn-secondary" type="submit" style="margin-top: 10px"; "border: white 3px solid"; "font-family:sans-serif">Login</button>
+        </div>
     </form>
 
     {% if messages %}
