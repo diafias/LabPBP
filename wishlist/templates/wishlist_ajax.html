@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<script>
+    $(document).ready( function() {
+        $.get('/wishlist/json/', function(data, status){
+            let content = `
+                <tr class="table-dark">
+                    <th>Nama Barang</th>
+                    <th>Harga Barang</th>
+                    <th>Deskripsi</th>
+                </tr>
+            `;
+            for (let i = 0; i < data.length; i++){
+                content += `
+                    <tr class="table-body">
+                        <td>${data[i].fields.nama_barang}</td>
+                        <td>${data[i].fields.harga_barang}</td>
+                        <td>${data[i].fields.deskripsi}</td>
+                    </tr>
+                `;
+            }
+            $('.content').html(content);
+        });
+    });
+</script>
+{% endblock meta %}
+{% block content %}
+
+</table>
+<h6 style="text-align:left">Sesi terakhir login: {{ last_login }}</h6>
+<button type="button" class="btn btn-dark" style="background-color: #2c1c21;"><a class="text-white text-decoration-none" href="{% url 'wishlist:logout' %}"> Logout </a></button>
+
+
+{% endblock content %}
