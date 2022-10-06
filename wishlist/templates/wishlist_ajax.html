@@ -27,7 +27,26 @@
 {% endblock meta %}
 {% block content %}
 
-</table>
+<h1 style="text-align:center; font: bold 23px/1 sans-serif;">ADD NEW WISHLIST</h1>
+<form method="POST" action="">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>Title: </td>
+            <td><input type="text" name="title" placeholder="Title" class="form-control"></td>
+        </tr>
+                
+        <tr>
+            <td>Description: </td>
+            <td><input type="text" name="description" placeholder="Description" class="form-control"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input class="btn add_task_btn" type="submit" value="Add"></td>
+        </tr>
+    </table>
+</form>
 <h6 style="text-align:left">Sesi terakhir login: {{ last_login }}</h6>
 <button type="button" class="btn btn-dark" style="background-color: #2c1c21;"><a class="text-white text-decoration-none" href="{% url 'wishlist:logout' %}"> Logout </a></button>
 
